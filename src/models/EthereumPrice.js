@@ -19,4 +19,4 @@ const TransactionSchema = new mongoose.Schema({
   timestamp: Number,
 });
 
-module.exports = mongoose.model('Transaction', TransactionSchema);
+module.exports = mongoose.models.Transaction || mongoose.model('Transaction', TransactionSchema);
