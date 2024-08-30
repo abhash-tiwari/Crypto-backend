@@ -1,22 +1,14 @@
 const mongoose = require('mongoose');
 
-const TransactionSchema = new mongoose.Schema({
-  address: {
-    type: String,
+const EthereumPriceSchema = new mongoose.Schema({
+  price: {
+    type: Number,
     required: true,
-    index: true,
   },
-  hash: {
-    type: String,
-    required: true,
-    unique: true,
+  timestamp: {
+    type: Date,
+    default: Date.now,
   },
-  from: String,
-  to: String,
-  value: String,
-  gasUsed: String,
-  gasPrice: String,
-  timestamp: Number,
 });
 
-module.exports = mongoose.models.Transaction || mongoose.model('Transaction', TransactionSchema);
+module.exports = mongoose.model('EthereumPrice', EthereumPriceSchema);
